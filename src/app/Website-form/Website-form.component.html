@@ -1,0 +1,40 @@
+<div class="container">
+  <h1>Fill in the details below </h1>
+  <form (ngSubmit)="onSubmit()" #websiteForm="ngForm">
+    <div class="form-group">
+      <label for="name">Website URL</label>
+      <input  type="url" class="form-control" id="name" 
+      required
+      [(ngModel)]="model.url" name="name"
+        #name="ngModel"  >
+      <div [hidden]="name.valid "
+             class="alert alert-danger">
+             Insert a valid url please!
+        </div>
+
+    </div>
+
+    <div class="form-group">
+      <label for="ProductXPATH">Product XPATH</label>
+      <input type="text" class="form-control" id="productXPATH"
+      [(ngModel)]="model.productXPATH" name="firstXPATH">
+    </div>
+    
+    <div class="form-group">
+      <label for="ValueXPATH">Value XPATH</label>
+      <input type="text" class="form-control" id="ValueXPATH"
+      [(ngModel)]="model.valueXPATH" name="secondXPATH">
+    </div>
+
+    <div class="form-group">
+      <label for="Timer">Timer </label>
+      <input type="number" min = "1" class="form-control" id="Timer"
+      [(ngModel)]="model.timer" name="timer"
+      #timer="ngModel">
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!websiteForm.form.valid" name="wsubmit" value="submit1">Submit</button>
+    <br>
+    <button type="submit" class="btn btn-success" [disabled]="timer.invalid || timer.pristine" name="wsubmit" value="submit1">timed Submits</button>
+  </form>
+</div>

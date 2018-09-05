@@ -1,0 +1,3 @@
+Flask==0.10.1
+pymongo==2.6
+inflect==0.2.5
